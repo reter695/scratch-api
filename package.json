@@ -1,18 +1,18 @@
 {
   "name": "scratch-api",
-  "version": "1.1.11",
-  "description": "An API to interact with the Scratch 2.0 website",
+  "version": "1.2",
+  "description": "An API to interact with the Scratch 3.0 website",
   "main": "scratchapi.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:trumank/scratch-api.git"
+    "url": "git@github.com:qucchia/scratch-api.git"
   },
-  "author": "Truman Kilen",
+  "author": "qucchia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trumank/scratch-api/issues"
+    "url": "https://github.com/qucchia/scratch-api/issues"
   },
-  "homepage": "https://github.com/trumank/scratch-api",
+  "homepage": "https://github.com/qucchia/scratch-api",
   "dependencies": {
     "prompt": "^0.2.14",
     "ws": "^7.0.1"
