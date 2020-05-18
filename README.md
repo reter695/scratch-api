@@ -4,14 +4,9 @@ A utility for interacting with the Scratch 3.0 website. This is an extended and 
 
 ## Installation
 
-Install with npm:
-
+Install by cloning this repository:
 ```sh
-npm install scratch-api
-```
-Or by cloning this repository:
-```sh
-git clone https://github.com/trumank/scratch-api.git
+git clone https://github.com/qucchia/scratch-api.git
 ```
 ## Examples
 
