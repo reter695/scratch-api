@@ -1,6 +1,6 @@
 # scratch-api
 
-A utility for interacting with the Scratch 2.0 website.
+A utility for interacting with the Scratch 3.0 website.
 
 ## Installation
 
@@ -56,7 +56,11 @@ If you are feeling Pythonic today, check out Dylan Beswick's very similar [modul
 
 ### Scratch
 * [`getProject`](#getProject)
+* [`getUser`](#getUser)
 * [`getProjects`](#getProjects)
+* [`getFavorites`](#getFavorites)
+* [`getFollowers`](#getFollowers)
+* [`getFollowing`](#getFollowing)
 
 ### Scratch.UserSession
 * [`static create`](#UserSession.create)
@@ -80,6 +84,8 @@ If you are feeling Pythonic today, check out Dylan Beswick's very similar [modul
 * [`Event: set`](#CloudSession._set)
 * [`Event: end`](#CloudSession._end)
 
+Callback is the function that will run when the function has been executed.
+
 ## Scratch
 
 <a name="getProject"></a>
@@ -90,6 +96,14 @@ Retrieves a JSON object of the given Scratch project.
 * `projectId` - The project's ID.
 * `callback(err, project)`
 
+<a name="getUser"></a>
+### static getUser(username)
+
+Retrieves a JSON object of the given user.
+
+* `username` - The scratcher's username.
+* `callback(err, user)`
+
 <a name="getProjects"></a>
 ### static getProjects(username, callback)
 
@@ -97,6 +111,30 @@ Retrieves a list of all public projects belonging to given user.
 
 * `username` - Username of owner
 * `callback(err, projects)`
+
+<a name="getFavorites"></a>
+### static getFavorites(username, callback)
+
+Retrieves a list of all favorite projects of a given user.
+
+* `username` - Username
+* `callback(err, favorites)`
+
+<a name="getFollowers"></a>
+### static getFollowers(username, callback)
+
+Retrieves a list of the last 20 followers of a given user.
+
+* `username` - Username
+* `callback(err, followers)`
+
+<a name="getFollowing"></a>
+### static getFollowing(username, callback)
+
+Retrieves a list of the latest 20 people a given user is following.
+
+* `username` - Username
+* `callback(err, users)`
 
 ## UserSession
 
