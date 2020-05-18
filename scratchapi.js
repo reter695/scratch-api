@@ -89,121 +89,115 @@ function parseCookie(cookie) {
 
 var Scratch = {};
 
-Scratch.getProject = function(projectId, cb) {
-  requestJSON(
-    {
-      hostname: PROJECTS_SERVER,
-      path: "/" + projectId,
-      method: "GET"
-    },
-    cb
-  );
-};
 Scratch.getNews = function(cb) {
   requestJSON(
     {
       hostname: API_SERVER,
       path: "/news",
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
-Scratch.getProfileComments = function(user, cb) {
-  requestPlain(
+
+Scratch.getStatus = function(cb) {
+  requestJSON({
+    hostname: API_SERVER,
+    path: "/health",
+    method: "GET"
+  }, cb);
+};
+
+Scratch.getProject = function(projectId, cb) {
+  requestJSON(
     {
-      hostname: SERVER,
-      path: "/site-api/comments/user/" + user + "/",
+      hostname: PROJECTS_SERVER,
+      path: "/" + projectId,
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
-Scratch.getProjectComments = function(projectID, cb) {
-  requestPlain(
+
+Scratch.getNews = function(cb) {
+  requestJSON(
     {
-      hostname: SERVER,
-      path: "/site-api/comments/project/" + projectID + "/",
+      hostname: API_SERVER,
+      path: "/news",
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
-Scratch.getStudioComments = function(studioID, cb) {
-  requestPlain(
+
+Scratch.getActivity = function(username, cb) {
+  requestJSON(
     {
-      hostname: SERVER,
-      path: "/site-api/comments/gallery/" + studioID + "/",
+      hostname: API_SERVER,
+      path: "/proxy/users/" + username + '/activity',
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
+
 Scratch.getProjectAPI = function(projectId, cb) {
   requestJSON(
     {
       hostname: API_SERVER,
       path: "/projects/" + projectId,
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
+
 Scratch.getUser = function(username, cb) {
   requestJSON(
     {
       hostname: API_SERVER,
       path: "/users/" + username,
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
+
 Scratch.getProjects = function(username, cb) {
-  requestJSON(
-    {
+  requestJSON({
       hostname: API_SERVER,
       path: "/users/" + username + "/projects",
       method: "GET"
-    },
-    cb
-  );
+  }, cb);
 };
+
+Scratch.getMessages = function(username, cb) {
+  requestJSON({
+      hostname: API_SERVER,
+      path: "/users/" + username + "/messages/count",
+      method: "GET"
+  }, cb);
+};
+
 Scratch.getFavorites = function(username, cb) {
   requestJSON(
     {
       hostname: API_SERVER,
       path: "/users/" + username + "/favorites",
       method: "GET"
-    },
-    cb
-  );
+    }, cb);
 };
 Scratch.getFollowers = function(username, cb) {
-  requestJSON(
-    {
+  requestJSON({
       hostname: API_SERVER,
       path: "/users/" + username + "/followers",
       method: "GET"
-    },
-    cb
-  );
+  }, cb);
 };
+
 Scratch.getFollowing = function(username, cb) {
-  requestJSON(
-    {
+  requestJSON({
       hostname: API_SERVER,
       path: "/users/" + username + "/following",
       method: "GET"
-    },
-    cb
-  );
+  }, cb);
 };
+
+
 Scratch.UserSession = function(username, id, sessionId) {
   this.username = username;
   this.id = id;
   this.sessionId = sessionId;
 };
+
 Scratch.UserSession.create = function(username, password, cb) {
   request(
     {
