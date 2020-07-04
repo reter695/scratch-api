@@ -89,6 +89,17 @@ function parseCookie(cookie) {
 
 var Scratch = {};
 
+Scratch.requestJSON = function(options, cb) {
+  request(options, function(err, body, response) {
+    if (err) return cb(err);
+    try {
+      cb(null, JSON.parse(body));
+    } catch (e) {
+      cb(e);
+    }
+  });
+}
+
 Scratch.getNews = function(cb) {
   requestJSON(
     {
