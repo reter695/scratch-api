@@ -1,7 +1,6 @@
 # scratch-api
 
 A utility for interacting with the Scratch 3.0 website. This is an extended and updated version of [trumank's scratch-api](https://github.com/trumank/scratch-api) for the 2.0 website. See the [wiki](https://github.com/qucchia/scratch-api/wiki/) for details and documentation.
-[![Run on Repl.it](https://repl.it/badge/github/qucchia/scratch-api)](https://repl.it/github/qucchia/scratch-api)
 
 ## Installation
 
@@ -13,7 +12,7 @@ git clone https://github.com/qucchia/scratch-api.git
 
 Sets the user's backpack to a single script.
 ```javascript
-var Scratch = require('scratch-api');
+let Scratch = require('scratch-api');
 Scratch.UserSession.load(function(err, user) {
   if (err) return console.error(err);
   user.setBackpack([{
